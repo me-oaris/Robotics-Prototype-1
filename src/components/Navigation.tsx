@@ -12,7 +12,6 @@ const Navigation = () => {
   const [activeBubbleStyle, setActiveBubbleStyle] = useState({});
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
-  const previousBubbleStyle = useRef({});
   
   const navItems = [
     { href: '/', label: 'Home' },

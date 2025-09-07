@@ -135,7 +135,7 @@ export default function EventsPage() {
         >
           <h2 className="text-3xl font-bold mb-4">Host Your Own Event</h2>
           <p className="text-gray-300 max-w-2xl mx-auto mb-6">
-            Have an idea for a robotics event or workshop? We're open to collaborations and new initiatives!
+            Have an idea for a robotics event or workshop? We&apos;re open to collaborations and new initiatives!
           </p>
           <Link 
             href="/"

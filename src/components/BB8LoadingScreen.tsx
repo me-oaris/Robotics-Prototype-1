@@ -3,26 +3,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-/*
- * MOBILE SIZE CONFIGURATION:
- * To adjust the BB-8 robot size on mobile devices, modify the MOBILE_CONFIG object below:
- * - width: Controls how wide the robot appears (try '300%', '350%', '400%' for larger)
- * - height: Controls how tall the robot appears (try '900px', '1000px', '1200px' for larger)
- * 
- * Example for much larger mobile robot:
- * const MOBILE_CONFIG = {
- *   width: '350%',    // Much wider
- *   height: '1000px', // Much taller
- * };
- */
-
 interface BB8LoadingScreenProps {
   onComplete?: () => void;
 }
 
 const BB8LoadingScreen = ({ onComplete }: BB8LoadingScreenProps) => {
   const [progress, setProgress] = useState(0);
-  const [isComplete, setIsComplete] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [showFadeTransition, setShowFadeTransition] = useState(false);
 
@@ -44,7 +30,6 @@ const BB8LoadingScreen = ({ onComplete }: BB8LoadingScreenProps) => {
       setProgress(prev => {
         if (prev >= 100) {
           clearInterval(interval);
-          setIsComplete(true);
           
           setTimeout(() => {
             setShowFadeTransition(true);
@@ -92,35 +77,27 @@ const BB8LoadingScreen = ({ onComplete }: BB8LoadingScreenProps) => {
                    height: isMobile ? MOBILE_CONFIG.height : '400px'
                  }}
                >
-                 {/* Apply horizontal flip transformation to entire SVG content */}
                  <g transform="scale(-1, 1) translate(-1200, 0)">
                    <defs>
-                     {/* clip to crop the circle and ellipse elements in the body of the droid */}
                      <clipPath id="body">
                        <circle cx="0" cy="0" r="33.75"></circle>
                      </clipPath>
-                     {/* clip to crop the circle fabricating the reflection */}
                      <clipPath id="len">
                        <circle cx="0" cy="16.5" r="6.75"></circle>
                      </clipPath>
-                     {/* linear gradient used for the reflection on the lens of the droid */}
                      <linearGradient id="lens" x1="0" x2="0.25" y1="0" y2="0.25" spreadMethod="repeat">
                        <stop offset="0" stopColor="transparent"></stop>
                        <stop offset="0.5" stopColor="transparent"></stop>
                        <stop offset="0" stopColor="#fff"></stop>
                        <stop offset="1" stopColor="#fff"></stop>
                      </linearGradient>
-                     {/* dashes replicated to the side of the droid */}
                      <path id="dash" strokeDasharray="20 4 2" d="M 0 0 h 26"></path>
                      <path id="dash--small" d="M 0 0 h 8"></path>
-                     {/* particle replicated to the side of the droid */}
                      <path id="particle" d="M 0 -2 a 5 5 0 0 0 0 4 a 5 5 0 0 0 0 -4 m -2 2 a 5 5 0 0 0 4 0 a 5 5 0 0 0 -4 0"></path>
                    </defs>
                    
-                   {/* Extended ground spanning full width */}
                    <g fill="none" stroke="#FF6B35" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(0 152.5)">
                      <g id="ground" className="ground">
-                       {/* Extended ground pattern to cover full width */}
                        <path strokeDasharray="40 6 6 6 120 6 40 6 6 60 6 6 6 80 6 40 6 6" d="M 1.25 0 h 40 a 3 3 0 0 1 6 0 h 200 a 3 3 0 0 1 6 0 h 100 a 3 3 0 0 1 6 0 h 240 a 3 3 0 0 1 6 0 h 150 a 3 3 0 0 1 6 0 h 180 a 3 3 0 0 1 6 0 h 100 a 3 3 0 0 1 6 0 h 150"></path>
                        <g transform="translate(0 20)">
                          <path strokeDasharray="30 15 50 30 15 80 40 15 50" d="M 60 0 h 8 a 3 3 0 0 1 6 0 h 50 a 3 3 0 0 1 6 0 h 10 h 80 a 3 3 0 0 1 6 0 h 120 a 3 3 0 0 1 6 0 h 200 a 3 3 0 0 1 6 0 h 150 a 3 3 0 0 1 6 0 h 100 a 3 3 0 0 1 6 0 h 180 a 3 3 0 0 1 6 0 h 140"></path>
@@ -129,11 +106,9 @@ const BB8LoadingScreen = ({ onComplete }: BB8LoadingScreenProps) => {
                          </g>
                        </g>
                      </g>
-                     {/* Duplicate ground for seamless animation */}
                      <use href="#ground" transform="translate(-1200 0)"></use>
                    </g>
                    
-                   {/* Particles - Clean and minimal */}
                    <g fill="none" stroke="#FF6B35" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                      <g transform="translate(86 56)">
                        <use href="#dash" className="dash" style={{animationDelay: '-0.75s'}}></use>
@@ -162,13 +137,11 @@ const BB8LoadingScreen = ({ onComplete }: BB8LoadingScreenProps) => {
                      </g>
                    </g>
                    
-                   {/* BB-8 droid body positioned in center */}
                    <g fill="#000000" stroke="#FF6B35" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(1.25 1.25)">
                      <g transform="translate(600 50)">
                        <g transform="translate(0 65)">
                          <g className="bb8-base" transform="translate(0 0) rotate(-40)">
                            <g transform="translate(0 -65)">
-                             {/* body */}
                              <g transform="translate(0 65)">
                                <g className="bb8-center">
                                  <circle cx="0" cy="0" r="35"></circle>
@@ -188,7 +161,6 @@ const BB8LoadingScreen = ({ onComplete }: BB8LoadingScreenProps) => {
                                  </g>
                                </g>
                              </g>
-                             {/* head */}
                              <g>
                                <path d="M -29 29 l 6 8 h 46 l 6 -8 a 29 29 0 0 0 -58 0"></path>
                                <g stroke="none">
@@ -210,7 +182,6 @@ const BB8LoadingScreen = ({ onComplete }: BB8LoadingScreenProps) => {
                      </g>
                    </g>
                    
-                   {/* Dashes above bb-8 */}
                    <g fill="none" stroke="#FF6B35" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(602 77)">
                      <g>
                        <use className="dash" href="#dash--small" style={{animationDelay: '-0.56s'}}></use>
@@ -229,7 +200,6 @@ const BB8LoadingScreen = ({ onComplete }: BB8LoadingScreenProps) => {
                </svg>
              </div>
 
-             {/* Score Display - Right Corner */}
              <motion.div
                className="absolute top-8 right-8"
                initial={{ opacity: 0, y: 20 }}
@@ -254,7 +224,6 @@ const BB8LoadingScreen = ({ onComplete }: BB8LoadingScreenProps) => {
         )}
       </AnimatePresence>
 
-      {/* Immersive Fade Transition */}
       <AnimatePresence>
         {showFadeTransition && (
           <motion.div
@@ -268,7 +237,6 @@ const BB8LoadingScreen = ({ onComplete }: BB8LoadingScreenProps) => {
         )}
       </AnimatePresence>
 
-       {/* CSS Animations */}
        <style jsx>{`
          @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
          

@@ -61,7 +61,7 @@ export default function TechExpoPage() {
             <h2 className="text-3xl font-bold text-blue-400 mb-6">Event Overview</h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
               The Valmiki Robotics Tech Expo 2024 is the premier event for showcasing cutting-edge robotics technology, 
-              innovative projects, and the future of automation. This year's expo features interactive demonstrations, 
+              innovative projects, and the future of automation. This year&apos;s expo features interactive demonstrations, 
               expert talks, networking opportunities, and hands-on workshops.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
@@ -208,7 +208,7 @@ export default function TechExpoPage() {
           >
             <h2 className="text-3xl font-bold text-white mb-4">Ready to Join Us?</h2>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Don't miss out on this incredible opportunity to explore the future of robotics and technology. 
+              Don&apos;t miss out on this incredible opportunity to explore the future of robotics and technology. 
               Register now to secure your spot at Tech Expo 2024!
             </p>
             <a 

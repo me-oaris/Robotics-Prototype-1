@@ -32,7 +32,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Get in touch with the Valmiki Robotics team. We'd love to hear from you!
+            Get in touch with the Valmiki Robotics team. We&apos;d love to hear from you!
           </motion.p>
         </div>
       </motion.div>

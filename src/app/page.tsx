@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import HomePage from '@/components/HomePage';
-import Navigation from '@/components/Navigation';
 import BB8LoadingScreen from '@/components/BB8LoadingScreen';
 
 const globalStyles = `

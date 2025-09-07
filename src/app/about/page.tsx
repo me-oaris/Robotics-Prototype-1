@@ -99,7 +99,7 @@ export default function AboutPage() {
         >
           <h2 className="text-3xl font-bold mb-4">Join Our Club</h2>
           <p className="text-gray-300 max-w-2xl mx-auto mb-6">
-            Interested in robotics, programming, or engineering? We're always looking for passionate new members to join our team!
+            Interested in robotics, programming, or engineering? We&apos;re always looking for passionate new members to join our team!
           </p>
           <Link 
             href="/"
